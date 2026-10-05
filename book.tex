@@ -23,7 +23,8 @@
 
 \def\racketEd{0}
 \def\pythonEd{1}
-\def\edition{1}
+\providecommand{\BookEdition}{1}
+\let\edition\BookEdition
 
 % material that is specific to the Racket edition of the book
 \newcommand{\racket}[1]{{\if\edition\racketEd{#1}\fi}}
@@ -13184,10 +13185,9 @@ pass, which is \LangAlloc{} in monadic normal form.
 
 \newcommand{\LtupMonadASTRacket}{
 \begin{array}{rcl}
-\Exp &::=& \COLLECT{\Int} \RP \MID \ALLOCATE{\Int}{\Type}
+\Exp &::=& \COLLECT{\Int} \MID \ALLOCATE{\Int}{\Type}
    \MID \GLOBALVALUE{\Var}
 \end{array}
-
 }
 
 \newcommand{\LtupMonadASTPython}{

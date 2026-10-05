@@ -1,10 +1,20 @@
 
-.PHONY: all cont continuous clean publish
+.PHONY: all racket python cont continuous clean publish
 
 LATEXMK= latexmk -pdf
 
 all:
 	$(LATEXMK) -f book
+
+racket:
+	mkdir -p build/racket
+	$(LATEXMK) -outdir=build/racket -jobname=book-racket \
+		-pdflatex='pdflatex -interaction=nonstopmode -halt-on-error %O "\def\BookEdition{0}\input{%S}"' book.tex
+
+python:
+	mkdir -p build/python
+	$(LATEXMK) -outdir=build/python -jobname=book-python \
+		-pdflatex='pdflatex -interaction=nonstopmode -halt-on-error %O "\def\BookEdition{1}\input{%S}"' book.tex
 
 cont: continuous
 continuous:

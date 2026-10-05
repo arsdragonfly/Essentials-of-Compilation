@@ -6,8 +6,17 @@ subset of Python, also to x86-64.
 
 **Generating the book**
 
-To generate the book (`build/book.pdf`), run the `make` command (assuming
-you have a full install of TeX Live).
+To generate the default Python edition (`book.pdf`), run `make` with a
+full install of TeX Live, including `latexmk` and Biber.
+
+To build a specific edition without editing the source, run:
+
+```
+make racket  # build/racket/book-racket.pdf
+make python  # build/python/book-python.pdf
+```
+
+Use the Racket edition with the Racket student support code linked below.
 
 **Related resources**
 
